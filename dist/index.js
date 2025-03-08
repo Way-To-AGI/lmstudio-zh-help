@@ -14,8 +14,8 @@ const getPossiblePaths = () => {
   const homedir = os.homedir();
   if (platform === "darwin") {
     return [
-      "/Applications/LM Studio.app/Contents/Resources/app",
-      path.join(homedir, "Applications/LM Studio.app/Contents/Resources/app")
+      path.join("/Applications", "LM Studio.app", "Contents", "Resources", "app"),
+      path.join(homedir, "Applications", "LM Studio.app", "Contents", "Resources", "app")
     ];
   } else if (platform === "win32") {
     return [
@@ -122,7 +122,7 @@ const performReplacement = async (appPath) => {
     console.log(chalk.blue(`找到 ${jsAndTsxFiles.length} 个JS/TSX文件和 ${otherFiles.length} 个其他文件，开始替换...`));
     const urlOptions = {
       files,
-      from: /https:\/\/huggingface\.co/g,
+      from: /https:\/\/huggingface\.co/gi,
       to: "https://hf-mirror.com",
       countMatches: true
     };
@@ -130,17 +130,20 @@ const performReplacement = async (appPath) => {
       files: jsAndTsxFiles,
       // 只在JS和TSX文件中查找这些模式
       from: [
-        /['"]huggingface\.co['"]/g,
+        /['"]huggingface\.co['"]/gi,
         // 字符串形式的域名
-        /[^https:]\/\/huggingface\.co/g,
+        /[^https:]\/\/huggingface\.co/gi,
         // 不带https:的URL
-        /huggingface\.co\//g
+        /huggingface\.co\//gi,
         // 域名后跟斜杠的形式
+        /http:\/\/huggingface\.co/gi
+        // 添加可能的协议变体
       ],
       to: [
         "'hf-mirror.com'",
         "//hf-mirror.com",
-        "hf-mirror.com/"
+        "hf-mirror.com/",
+        "http://hf-mirror.com"
       ],
       countMatches: true
     };

@@ -1,6 +1,6 @@
 {
     "name": "@waytoagi/lmstudio-mirror-switcher",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A tool for switching the mirror of LM Studio",
     "main": "dist/index.js",
     "type": "module",
