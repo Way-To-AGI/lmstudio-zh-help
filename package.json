@@ -1,5 +1,5 @@
 {
-    "name": "lmstudio-mirror-switcher",
+    "name": "@waytoagi/lmstudio-mirror-switcher",
     "version": "1.0.0",
     "description": "一个工具，用于将LM Studio中的huggingface.co替换为hf-mirror.com",
     "main": "dist/index.js",
