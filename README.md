@@ -25,13 +25,13 @@
 ### Method 1: Using npx (Recommended) | 方法一：使用 npx（推荐）
 
 ```bash
-npx lmstudio-mirror-switcher
+npx @waytoagi/lmstudio-mirror-switcher
 ```
 
 ### Method 2: Global Installation | 方法二：全局安装
 
 ```bash
-npm install -g lmstudio-mirror-switcher
+npm install -g @waytoagi/lmstudio-mirror-switcher
 lmstudio-mirror-switcher
 ```
 
