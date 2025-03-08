@@ -6,10 +6,10 @@
     "type": "module",
     "scripts": {
       "start": "node index.js",
-      "prebuild": "chmod +x cli.js",
+      "prebuild": "chmod +x index.js",
       "build": "vite build",
-      "postinstall": "chmod +x cli.js",
-      "prepare": "chmod +x cli.js"
+      "postinstall": "chmod +x index.js",
+      "prepare": "chmod +x index.js"
     },
     "keywords": [
       "LM Studio",
@@ -30,7 +30,7 @@
       "pkg": "^5.8.1"
     },
     "bin": {
-      "lmstudio-mirror-switcher": "./cli.js"
+      "lmstudio-mirror-switcher": "./dist/index.js"
     },
     "pkg": {
       "assets": [
@@ -45,7 +45,7 @@
     },
     "files": [
       "dist",
-      "cli.js",
+      "index.js",
       "README.md"
     ],
     "engines": {
