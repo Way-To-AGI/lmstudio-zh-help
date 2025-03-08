@@ -1,0 +1,54 @@
+{
+    "name": "lmstudio-mirror-switcher",
+    "version": "1.0.0",
+    "description": "一个工具，用于将LM Studio中的huggingface.co替换为hf-mirror.com",
+    "main": "dist/index.js",
+    "type": "module",
+    "scripts": {
+      "start": "node index.js",
+      "prebuild": "chmod +x cli.js",
+      "build": "vite build",
+      "postinstall": "chmod +x cli.js",
+      "prepare": "chmod +x cli.js"
+    },
+    "keywords": [
+      "LM Studio",
+      "huggingface",
+      "mirror"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+      "replace-in-file": "^6.3.5",
+      "fs-extra": "^11.1.1",
+      "glob": "^10.3.10",
+      "inquirer": "^8.2.5",
+      "chalk": "^4.1.2"
+    },
+    "devDependencies": {
+      "vite": "^5.1.4",
+      "pkg": "^5.8.1"
+    },
+    "bin": {
+      "lmstudio-mirror-switcher": "./cli.js"
+    },
+    "pkg": {
+      "assets": [
+        "node_modules/**/*"
+      ],
+      "targets": [
+        "node16-win-x64",
+        "node16-macos-x64",
+        "node16-macos-arm64"
+      ],
+      "outputPath": "dist"
+    },
+    "files": [
+      "dist",
+      "cli.js",
+      "README.md"
+    ],
+    "engines": {
+      "node": ">=14.0.0"
+    }
+  } 
